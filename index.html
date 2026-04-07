@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GREEN-API Client</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ── Header ─────────────────────────────────────────── -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-green">GREEN</span><span class="logo-api">-API</span>
+        </div>
+        <p class="header-tagline">WhatsApp API Client</p>
+      </div>
+    </header>
+
+    <!-- ── Main layout ────────────────────────────────────── -->
+    <main class="layout">
+
+      <!-- LEFT PANEL — controls -->
+      <section class="panel panel--controls" aria-label="API Controls">
+
+        <!-- Connection credentials -->
+        <fieldset class="fieldset" id="credentials">
+          <legend class="fieldset__legend">Instance Credentials</legend>
+          <div class="field">
+            <label class="field__label" for="idInstance">idInstance</label>
+            <input
+              class="field__input"
+              type="text"
+              id="idInstance"
+              name="idInstance"
+              placeholder="Enter idInstance"
+              autocomplete="off"
+            />
+          </div>
+          <div class="field">
+            <label class="field__label" for="apiToken">ApiTokenInstance</label>
+            <input
+              class="field__input"
+              type="password"
+              id="apiToken"
+              name="apiToken"
+              placeholder="Enter ApiTokenInstance"
+              autocomplete="off"
+            />
+          </div>
+        </fieldset>
+
+        <!-- Instance methods -->
+        <fieldset class="fieldset" id="instance-methods">
+          <legend class="fieldset__legend">Instance Methods</legend>
+          <button class="btn btn--method" id="btn-getSettings" data-method="getSettings">
+            getSettings
+          </button>
+          <button class="btn btn--method" id="btn-getStateInstance" data-method="getStateInstance">
+            getStateInstance
+          </button>
+        </fieldset>
+
+        <!-- sendMessage -->
+        <fieldset class="fieldset" id="send-message">
+          <legend class="fieldset__legend">Send Message</legend>
+          <div class="field">
+            <label class="field__label" for="msgPhone">Phone number</label>
+            <input
+              class="field__input"
+              type="text"
+              id="msgPhone"
+              placeholder="77771234567"
+              autocomplete="off"
+            />
+          </div>
+          <div class="field">
+            <label class="field__label" for="msgText">Message</label>
+            <textarea
+              class="field__input field__input--textarea"
+              id="msgText"
+              placeholder="Hello World!"
+              rows="3"
+            ></textarea>
+          </div>
+          <button class="btn btn--method" id="btn-sendMessage" data-method="sendMessage">
+            sendMessage
+          </button>
+        </fieldset>
+
+        <!-- sendFileByUrl -->
+        <fieldset class="fieldset" id="send-file">
+          <legend class="fieldset__legend">Send File by URL</legend>
+          <div class="field">
+            <label class="field__label" for="filePhone">Phone number</label>
+            <input
+              class="field__input"
+              type="text"
+              id="filePhone"
+              placeholder="77771234567"
+              autocomplete="off"
+            />
+          </div>
+          <div class="field">
+            <label class="field__label" for="fileUrl">File URL</label>
+            <input
+              class="field__input"
+              type="url"
+              id="fileUrl"
+              placeholder="https://my.site.com/img/horse.png"
+              autocomplete="off"
+            />
+          </div>
+          <div class="field">
+            <label class="field__label" for="fileCaption">Caption (optional)</label>
+            <input
+              class="field__input"
+              type="text"
+              id="fileCaption"
+              placeholder="Check this out!"
+              autocomplete="off"
+            />
+          </div>
+          <button class="btn btn--method" id="btn-sendFileByUrl" data-method="sendFileByUrl">
+            sendFileByUrl
+          </button>
+        </fieldset>
+
+      </section>
+
+      <!-- RIGHT PANEL — response viewer -->
+      <section class="panel panel--response" aria-label="API Response">
+        <div class="response-header">
+          <span class="response-label">Response</span>
+          <span class="response-method-badge" id="responseBadge" aria-live="polite"></span>
+          <button class="btn btn--clear" id="btn-clear" title="Clear response">Clear</button>
+        </div>
+        <div class="response-status" id="responseStatus" aria-live="polite"></div>
+        <textarea
+          class="response-output"
+          id="responseOutput"
+          readonly
+          aria-label="API response output"
+          placeholder="Response will appear here..."
+        ></textarea>
+      </section>
+
+    </main>
+
+    <!-- ── Footer ─────────────────────────────────────────── -->
+    <footer class="site-footer">
+      <span>GREEN-API © 2025</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
